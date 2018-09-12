@@ -1,0 +1,26 @@
+别名: shenhesoft
+创建日期: 2018-8-21
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=ShenheSoft
+发布者: CN=ShenheSoft
+序列号: 897742e
+有效期开始日期: Tue Aug 21 11:21:26 CST 2018, 截止日期: Sat Aug 15 11:21:26 CST 2043
+证书指纹:
+         MD5: 51:4D:FE:50:C3:EC:46:8F:56:ED:5C:1E:14:98:A5:83
+         SHA1: 28:64:37:AC:37:D6:C8:92:BC:C5:4A:CF:5D:C7:45:0D:50:85:98:73
+         SHA256: F6:A4:65:A9:3A:EA:8F:1E:AE:89:52:87:34:D6:C9:81:F6:CA:72:8D:EA:C0:DA:E5:03:EE:23:F3:74:A2:85:A1
+         签名算法名称: SHA256withRSA
+         版本: 3
+
+扩展:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 74 F1 AD DE 95 49 80 86   EC 5D 5B 62 CA 9A CD DE  t....I...][b....
+0010: E7 F0 32 B7                                        ..2.
+]
+]
+

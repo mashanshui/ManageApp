@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'ShenheSoft'
+            keyPassword 'WYJun7450088'
+            storeFile file('manageapp.jks')
+            storePassword 'WYJun7450088'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.shenhesoft.manageapp"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a'
+//            , 'arm64-v8a', 'x86_64'
+        }
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+//            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //    implementation 'me.jessyan:arms:+'
+    implementation 'me.jessyan:arms:2.4.1'
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+    //test
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    testImplementation rootProject.ext.dependencies["canary-release"]
+    //    testImplementation rootProject.ext.dependencies["junit"]
+    //tools
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    implementation rootProject.ext.dependencies["qmui"]
+    implementation rootProject.ext.dependencies["statusbarutil"]
+    implementation rootProject.ext.dependencies["autosize"]
+    implementation rootProject.ext.dependencies["utilcode"]
+
+    implementation 'com.amap.api:location:latest.integration'
+}

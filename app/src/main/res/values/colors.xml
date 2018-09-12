@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00aeff</color>
+    <color name="colorPrimaryDark">#009DFF</color>
+    <color name="colorPrimaryLight">#94DCFE</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--自己使用的主属性，防止修改colorPrimary导致系统主题改变-->
+    <color name="myColorPrimary">#00aeff</color>
+    <color name="myColorPrimaryDark">#009DFF</color>
+    <color name="myColorPrimaryLight">#94DCFE</color>
+    <color name="myColorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+</resources>
